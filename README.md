@@ -10,10 +10,10 @@ This script make frequency analysis of words in text
 
 #### change the number of words in function:
 ```python
-def get_most_frequent_words(dict_words)
+def get_most_frequent_words(file_path)
 ```
 ```python
-for i in range(<your number>):
+most_words = Counter(all_words).most_common(1<your number>)
 ```
 
 ### script start example
