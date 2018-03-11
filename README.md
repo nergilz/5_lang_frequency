@@ -8,12 +8,9 @@ This script make frequency analysis of words in text
 + the script will print ten words and their number
 + you can change the number of words
 
-#### change the number of words in function:
+#### change the number of frequency words in txt:
 ```python
-def get_most_frequent_words(file_path)
-```
-```python
-most_words = Counter(all_words).most_common(1<your number>)
+ECOUNTERED_WORDS = <your number>
 ```
 
 ### script start example
