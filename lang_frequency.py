@@ -1,5 +1,6 @@
 import sys
 import re
+import os
 from collections import Counter
 
 
@@ -14,21 +15,25 @@ def get_most_frequent_words(all_words, encountered_words):
     return most_frequent_words
 
 
+def file_is_empty(file_path):
+    return os.stat(file_path).st_size == 0
+
+
 def pprint_words(most_frequent_words):
     for word, count in most_frequent_words:
         print(word, ':', count)
 
 
 def main(file_path, encountered_words):
-    try:
-        all_words = load_data(file_path)
-        if len(all_words) > 0:
+    if file_is_empty(file_path):
+        print(' ERROR: This file "{}" is empty!\n'.format(file_path))
+    else:
+        try:
+            all_words = load_data(file_path)
             most_frequent_words = get_most_frequent_words(all_words, encountered_words)
             pprint_words(most_frequent_words)
-        else:
-            print(' ERROR: This file "{}" is empty!\n'.format(file_path))
-    except UnicodeDecodeError:
-        print(' ERROR: decode error, file must be .txt\n')
+        except UnicodeDecodeError:
+            print(' ERROR: decode error, file must be .txt!\n')
 
 
 if __name__ == '__main__':
