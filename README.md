@@ -5,17 +5,14 @@ This script make frequency analysis of words in text
 
 ### discription of the script
 + specify the path to start
-+ the script will print ten words and their number
++ the script will print words and their number
 + you can change the number of words
++ requrements: tow arguments for start to script <name> and <number>
 
-#### change the number of frequency words in txt:
-```python
-ECOUNTERED_WORDS = <your number>
-```
 
 ### script start example
 ```bash
-python3 lang_frequency.py arch/wp.txt
+python3 lang_frequency.py arch/example.txt <your number>
 ```
 
 ### example result
@@ -35,7 +32,7 @@ your : 44
 
 ### requirements for running
 ```bash
-pthon 3.5 ver
+Python 3.5 ver
 ```
 ---
 ## Project Goals
