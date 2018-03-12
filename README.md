@@ -7,7 +7,7 @@ This script make frequency analysis of words in text
 + specify the path to start
 + the script will print words and their number
 + you can change the number of words
-+ requrements: tow arguments for start to script <name> and <number>
++ requrements: tow arguments for start to script "name" and "number"
 
 
 ### script start example
