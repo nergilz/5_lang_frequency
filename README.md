@@ -15,6 +15,11 @@ This script make frequency analysis of words in text
 python3 lang_frequency.py arch/example.txt <your number>
 ```
 
+### for print help
+```bash
+python3 lang_frequency.py --help
+```
+
 ### example result
 ```bash
 the : 148
