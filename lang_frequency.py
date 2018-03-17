@@ -5,13 +5,13 @@ from collections import Counter
 
 def load_data(file_path):
     with open(file_path, 'r') as file_handler:
-        text_in_file = file_handler.read()
-        return text_in_file
+        text_from_file = file_handler.read()
+        return text_from_file
 
 
-def get_most_frequent_words(data_from_file, encountered_words):
-    all_words = re.findall(r'\w+', data_from_file.lower())
-    most_frequent_words = Counter(all_words).most_common(encountered_words)
+def get_most_frequent_words(text_from_file, number_of_words):
+    all_words = re.findall(r'\w+', text_from_file.lower())
+    most_frequent_words = Counter(all_words).most_common(number_of_words)
     return most_frequent_words
 
 
@@ -40,8 +40,8 @@ def get_parser_args():
 if __name__ == '__main__':
     try:
         arguments = get_parser_args()
-        file_text = load_data(arguments.path)
-        most_frequent_words = get_most_frequent_words(file_text, arguments.number)
+        text_from_file = load_data(arguments.path)
+        most_frequent_words = get_most_frequent_words(text_from_file, arguments.number)
         pprint_words(most_frequent_words)
     except FileNotFoundError:
         print(' ERROR : file "{}" not found\n'.format(arguments.path))
