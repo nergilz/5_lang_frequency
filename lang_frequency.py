@@ -1,12 +1,12 @@
 import re
-from collections import Counter
 import argparse
+from collections import Counter
 
 
 def load_data(file_path):
     with open(file_path, 'r') as file_handler:
-        data_from_file = file_handler.read()
-        return data_from_file
+        text_in_file = file_handler.read()
+        return text_in_file
 
 
 def get_most_frequent_words(data_from_file, encountered_words):
@@ -20,22 +20,28 @@ def pprint_words(most_frequent_words):
         print(word, ':', count)
 
 
+def get_parser_args():
+    parser = argparse.ArgumentParser(description='most frequent words in text')
+    parser.add_argument(
+        'path',
+        help='path for .txt file',
+    )
+    parser.add_argument(
+        'number',
+        type=int,
+        nargs='?',
+        default=10,
+        help='count of encountered words in text'
+    )
+    arguments = parser.parse_args()
+    return arguments
+
+
 if __name__ == '__main__':
     try:
-        parser = argparse.ArgumentParser(description='most frequent words in text')
-        file_path = parser.add_argument(
-            'file_path',
-            type=str,
-            help='path for .txt file',
-            )
-        encountered_words = parser.add_argument(
-            'encountered_words',
-            type=int,
-            help='count of encountered words in text'
-            )
-        args = parser.parse_args()
-        data_from_file = load_data(args.file_path)
-        most_frequent_words = get_most_frequent_words(data_from_file, args.encountered_words)
+        arguments = get_parser_args()
+        file_text = load_data(arguments.path)
+        most_frequent_words = get_most_frequent_words(file_text, arguments.number)
         pprint_words(most_frequent_words)
     except FileNotFoundError:
-        print(' ERROR : file "{}" not found\n'.format(args.file_path))
+        print(' ERROR : file "{}" not found\n'.format(arguments.path))

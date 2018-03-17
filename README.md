@@ -7,12 +7,18 @@ This script make frequency analysis of words in text
 + specify the path to start
 + the script will print words and their number
 + you can change the number of words
-+ requrements: tow arguments for start to script "name" and "number"
++ requrements: tow arguments for start to script "path" and "number"
++ if you whant print only ten words: one argument to sccript - "path"
 
 
 ### script start example
 ```bash
-python3 lang_frequency.py arch/example.txt <your number>
+python3 lang_frequency.py dirname/example.txt <your number>
+```
+
+#### or second start example
+```bash
+python3 lang_frequency.py dirname/example.txt
 ```
 
 ### for print help
